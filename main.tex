@@ -120,7 +120,8 @@ The divergence of the tensor $ \Vec{A}$ is given by
 
 \section{Second Task}
 
-\subsection{System description and derivation of the movement equations}
+\subsection{System description and derivation of the movement equations using the Newtonian formalism}
+\label{sec: NewtonianDerivation}
 
 
 \begin{figure}[h]
@@ -166,6 +167,7 @@ Since the system evolves in form of circular movement at constant curvature radi
 Equation \ref{eq: radialbalance} can be simplified for small values of $\phi <<\, 1$ by using the approximation $\sin{\phi} \approx \phi $. This yields the linear movement equation:
 
 \begin{equation}
+
     \Ddot{\phi} = -\frac{g}{l}\,\phi
 \end{equation}
 
@@ -187,6 +189,73 @@ Equation \ref{eq: radialbalance} can be simplified for small values of $\phi <<\
   \caption{Free body diagram}
   \label{fig:free body}
 \end{figure}
+
+\subsection{Derivation of the movement equations using the Lagrange formalism}
+\label{sec: lagrange}
+
+In Lagrangian mechanics, the movement equations are derived from a potential called the Lagrangian $l$, which can be written as:
+
+\begin{equation}
+\label{eq: Lagrangian}
+    L(\Vec{q}, \Vec{\Dot{q}}) = T(\Vec{\Dot{q}}) - V(\Vec{q}),
+\end{equation}
+
+where $T$ is the total kinetic energy and $V$ is the potential energy of the system. This function depends on the system describing variables $\Vec{q}$ and their time derivative $\Vec{\Dot{q}}$. The movement equations can then be derived from the Lagrangian equation of second kind:
+
+\begin{equation}
+\label{eq: secondKindLagrangian}
+    \frac{d}{dt}\left(\frac{\partial L}{\partial \Dot{q}}\right) - \left(\frac{\partial L}{\partial q}  \right) = \Vec{0}.
+\end{equation}
+
+Using the minimal coordinate $q$ = $\phi$, the position vector $\Vec{r}$ can be written as:
+
+\begin{equation}
+    \Vec{r} = \begin{bmatrix}
+        l\,sin(\phi) \\ l\, cos(\phi) 
+        \end{bmatrix}
+\end{equation}
+
+Furthermore, the kinetic and potential energy are given by:
+
+\begin{equation}
+    T = \frac{1}{2}\,\Vec{\Dot{r}}^T\,m\,\Vec{\Dot{r}}
+\end{equation}
+
+and 
+\begin{equation}
+    V = -m\,g\,l\,cos(\phi).
+\end{equation}
+
+Hence, the Lagrangian for the mathematical pendulum is given by:
+\begin{equation}
+    L = \frac{1}{2}\,\Vec{\Dot{r}}^T\,m\,\Vec{\Dot{r}} + m\,g\,l\,cos(\phi)
+\end{equation}
+
+and the required derivatives for Equation \ref{eq: Lagrangian} result to:
+
+\begin{equation}
+    \left(\frac{\partial L}{\partial \Dot{q}}\right) = \frac{\partial}{\partial \Dot{\phi}} \left( \frac{1}{2}\,m\,l^2\,(sin(\phi)^2 + cos(\phi)^2)\,\Dot{\phi}^2 \right) = m\,l^2\,\Dot{\phi}
+\end{equation}
+
+\begin{equation}
+\label{eq: LagFirstPart}
+    \frac{d}{dt}\left(\frac{\partial L}{\partial \Dot{q}}\right) = m\,l^2\,\Ddot{\phi}
+\end{equation}
+
+and 
+
+\begin{equation}
+\label{eq: LagSecondPart}
+    \left(\frac{\partial L}{\partial q}  \right) = \frac{\partial}{\partial \phi} \left(m\,g\,l\cos(\phi)\right) = -m\,g\,l\,sin(\phi).
+\end{equation}
+
+Plugging Equation \ref{eq: LagFirstPart} and \ref{eq: LagSecondPart} into Equation \ref{eq: secondKindLagrangian} yields the movement equation:
+
+\begin{equation}
+    m\,l^2\,\Ddot{\phi} + m\,g\,l\,sin(\phi) = 0,
+\end{equation}
+
+which is equivalent to Equation \ref{eq: tangentialbalance} derived in Section \ref{sec: NewtonianDerivation}.
 
 
 \subsection{Analytical solution of the linear movement equation}
