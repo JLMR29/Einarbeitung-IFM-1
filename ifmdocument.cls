@@ -128,6 +128,7 @@
   \usepgfplotslibrary{patchplots}
   \usepackage{grffile}
   \usepackage{amsmath}
+  \usepackage[pdf]{pstricks}
 
 %output of units
 \usepackage{nicefrac}

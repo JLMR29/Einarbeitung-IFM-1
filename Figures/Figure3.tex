@@ -1,92 +1,66 @@
 % This file was created by matlab2tikz.
 %
-%The latest updates can be retrieved from
-%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
-%where you can also make suggestions and rate matlab2tikz.
-%
 \begin{tikzpicture}
 
 \begin{axis}[%
-width=4.521in,
-height=3.566in,
-at={(0.758in,0.481in)},
+width=0.951\figW,
+height=\figH,
+at={(0\figW,0\figH)},
 scale only axis,
-xmin=-14,
-xmax=-5,
+xmode=log,
+xmin=1e-06,
+xmax=0.01,
+xminorticks=true,
 xlabel style={font=\color{white!15!black}},
-xlabel={log(deltaT) [-]},
-ymin=-16,
-ymax=-2,
+xlabel={$log(\Delta t)\, [-]$},
+ymode=log,
+ymin=1e-07,
+ymax=0.1,
+yminorticks=true,
 ylabel style={font=\color{white!15!black}},
-ylabel={log(MSE) [-]},
+ylabel={$log(MSE)\, [-]$},
 axis background/.style={fill=white},
+xmajorgrids,
+xminorgrids,
+ymajorgrids,
+yminorgrids,
 legend style={at={(0.03,0.97)}, anchor=north west, legend cell align=left, align=left, draw=white!15!black}
 ]
-\addplot[only marks, mark=*, mark options={}, mark size=1.5000pt, color=red, fill=red] table[row sep=crcr]{%
-x	y\\
--5.29831736654804	-3.34888343218445\\
--6.90775527898214	-5.19641096507771\\
--7.60090245954208	-5.91761490078087\\
--9.21034037197618	-7.54923216163939\\
--11.5129254649702	-9.85677520310696\\
--9.90348755253613	-8.24513522372546\\
--13.8155105579643	-12.1598554391161\\
+\addplot [color=red]
+  table[row sep=crcr]{%
+0.005	0.03512\\
+0.001	0.005536\\
+0.0005	0.002692\\
+0.0001	0.0005265\\
+1e-05	5.239e-05\\
+5e-05	0.0002625\\
+1e-06	5.237e-06\\
 };
 \addlegendentry{EE}
 
-\addplot[only marks, mark=*, mark options={}, mark size=1.5000pt, color=green, fill=green] table[row sep=crcr]{%
-x	y\\
--5.29831736654804	-3.89905963933227\\
--6.90775527898214	-5.30578914182906\\
--7.60090245954208	-5.97201274492776\\
--9.21034037197618	-7.55964916517509\\
--11.5129254649702	-9.85729659429855\\
--9.90348755253613	-8.2500546406524\\
--13.8155105579643	-12.1593942697469\\
+\addplot [color=green]
+  table[row sep=crcr]{%
+0.005	0.02026\\
+0.001	0.004963\\
+0.0005	0.002549\\
+0.0001	0.0005211\\
+1e-05	5.236e-05\\
+5e-05	0.0002612\\
+1e-06	5.239e-06\\
 };
 \addlegendentry{EI}
 
-\addplot[only marks, mark=*, mark options={}, mark size=1.5000pt, color=blue, fill=blue] table[row sep=crcr]{%
-x	y\\
--5.29831736654804	-7.06581278896353\\
--6.90775527898214	-8.57210772672604\\
--7.60090245954208	-9.25280583306758\\
--9.21034037197618	-10.8523570801876\\
--11.5129254649702	-13.1527265815506\\
--9.90348755253613	-11.5442729724134\\
--13.8155105579643	-15.4550903133967\\
+\addplot [color=blue]
+  table[row sep=crcr]{%
+0.005	0.0008538\\
+0.001	0.0001893\\
+0.0005	9.584e-05\\
+0.0001	1.936e-05\\
+1e-05	1.94e-06\\
+5e-05	9.691e-06\\
+1e-06	1.941e-07\\
 };
 \addlegendentry{MP}
 
-\addplot [color=red, dashed, forget plot]
-  table[row sep=crcr]{%
--5.29831736654804	-3.48651629820425\\
--6.90775527898214	-5.13786414312144\\
--7.60090245954208	-5.84906094915229\\
--9.21034037197618	-7.50040879406949\\
--11.5129254649702	-9.86295344501753\\
--9.90348755253613	-8.21160560010034\\
--13.8155105579643	-12.2254980959656\\
-};
-\addplot [color=green, dashed, forget plot]
-  table[row sep=crcr]{%
--5.29831736654804	-3.7813928418328\\
--6.90775527898214	-5.35364730597459\\
--7.60090245954208	-6.03078044700671\\
--9.21034037197618	-7.60303491114851\\
--11.5129254649702	-9.85242251632242\\
--9.90348755253613	-8.28016805218062\\
--13.8155105579643	-12.1018101214963\\
-};
-\addplot [color=blue, dashed, forget plot]
-  table[row sep=crcr]{%
--5.29831736654804	-7.00614113570796\\
--6.90775527898214	-8.59727906525393\\
--7.60090245954208	-9.28254487217082\\
--9.21034037197618	-10.8736828017168\\
--11.5129254649702	-13.1500865381797\\
--9.90348755253613	-11.5589486086337\\
--13.8155105579643	-15.4264902746425\\
-};
 \end{axis}
 \end{tikzpicture}%
