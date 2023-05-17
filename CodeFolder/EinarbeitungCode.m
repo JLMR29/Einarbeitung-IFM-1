@@ -63,7 +63,8 @@ set(h(2),'position',pos{2});
 linkaxes([h(1), h(2)], "y")
 box on
 
-%matlab2tikz('Figure1.tex');
+cleanfigure;
+matlab2tikz('height', '\figH', 'width', '\figW', 'filename', ['Figure1', '.tex'], 'showInfo', false, 'floatformat', '%.4g');
 
 %%
 
@@ -94,7 +95,9 @@ box on
 clear EESolutions EISolutions MPSolutions ANSolutions
 clear EEEnergy EIEnergy MPEnergy ANEnergy
 
-%matlab2tikz('Figure2.tex');
+cleanfigure;
+matlab2tikz('height', '\figH', 'width', '\figW', 'filename', ['Figure2', '.tex'], 'showInfo', false, 'floatformat', '%.4g');
+
 %%
 
 
@@ -108,20 +111,20 @@ for i=1: length(deltaTArray)
 
     ZustandEE = Explicit(T, deltaT, StartingConditions, "linear");
     MSE = QAError(ZustandEE, ZustandsvektorREF);
-    MSEArray(i,1) = log(deltaT);
-    MSEArray(i,2) = log(MSE);
+    MSEArray(i,1) = deltaT;
+    MSEArray(i,2) = MSE;
     clear ZustandEE
 
     ZustandEI = Implicit(T, deltaT, StartingConditions, "linear");
     MSE = QAError(ZustandEI, ZustandsvektorREF);
-    MSEArray(i,1) = log(deltaT);
-    MSEArray(i,3) = log(MSE);
+    MSEArray(i,1) = deltaT;
+    MSEArray(i,3) = MSE;
     clear ZustandEI
 
     ZustandMP = Midpoint(T, deltaT, StartingConditions, "linear");
     MSE = QAError(ZustandMP, ZustandsvektorREF);
-    MSEArray(i,1) = log(deltaT);
-    MSEArray(i,4) = log(MSE);
+    MSEArray(i,1) = deltaT;
+    MSEArray(i,4) = MSE;
     clear ZustandMP
 
     
@@ -130,9 +133,9 @@ end
 
 
 %% Regression:
-EECoeff = LinRegCoeff(MSEArray(:,1), MSEArray(:,2));
-EICoeff = LinRegCoeff(MSEArray(:,1), MSEArray(:,3));
-MPCoeff = LinRegCoeff(MSEArray(:,1), MSEArray(:,4));
+EECoeff = LinRegCoeff(log(MSEArray(:,1)), log(MSEArray(:,2)));
+EICoeff = LinRegCoeff(log(MSEArray(:,1)), log(MSEArray(:,3)));
+MPCoeff = LinRegCoeff(log(MSEArray(:,1)), log(MSEArray(:,4)));
 
 EELineFit = [ones(length(MSEArray(:,1)), 1) MSEArray(:,1)]*EECoeff;
 EILineFit = [ones(length(MSEArray(:,1)), 1) MSEArray(:,1)]*EICoeff;
@@ -141,25 +144,32 @@ MPLineFit = [ones(length(MSEArray(:,1)), 1) MSEArray(:,1)]*MPCoeff;
 
 % Convergence plot: log MSE vs log deltaT
 figure(3);
-scatter(MSEArray(:,1), MSEArray(:,2), "r", "filled")
+loglog(MSEArray(:,1), MSEArray(:,2), "r")
 hold on
-scatter(MSEArray(:,1), MSEArray(:,3), "g", "filled")
+loglog(MSEArray(:,1), MSEArray(:,3), "g")
 hold on
-scatter(MSEArray(:,1), MSEArray(:,4), "b", "filled")
+loglog(MSEArray(:,1), MSEArray(:,4), "b")
+
+%{
 hold on
-plot(MSEArray(:,1),EELineFit, "--")
+loglog(MSEArray(:,1),EELineFit, "--")
 hold on
-plot(MSEArray(:,1),EILineFit, "--")
+loglog(MSEArray(:,1),EILineFit, "--")
 hold on
-plot(MSEArray(:,1),MPLineFit, "--")
+loglog(MSEArray(:,1),MPLineFit, "--")
+%}
+
 xlabel("log(deltaT) [-]")
 ylabel("log(MSE) [-]")
 legend(["EE", "EI", "MP"], "Location","northwest")
 colororder(["#FF0000";"#00FF00";"#0000FF"])
+grid on
 box on
 hold off
 
-%matlab2tikz('Figure3.tex');
+cleanfigure;
+matlab2tikz('height', '\figH', 'width', '\figW', 'filename', ['Figure3', '.tex'], 'showInfo', false, 'floatformat', '%.4g');
+
 
 
 % Experimental convergence order is given by the slope of the line
