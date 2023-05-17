@@ -15,6 +15,13 @@
 %usercommands
 \input{header}
 
+% Tikz images
+%\newlength\figH
+%\newlength\figW
+
+
+
+
 \begin{document}
 	\maketitle
 	\section{First task}
@@ -124,28 +131,13 @@ The divergence of the tensor $ \Vec{A}$ is given by
 \label{sec: NewtonianDerivation}
 
 
-\begin{figure}[h]
-  \begin{center}
-    {
-        \psfragscanon
-      \psfrag{1}[c][c]{$l$}
-      \psfrag{2}[c][c]{$\phi$}
-      \psfrag{3}[c][c]{$m$}
-      \psfrag{4}[c][c]{$g$}
-      \includegraphics[width=0.2\textwidth]{Figures/Zeichnung-1.eps}}
-  \end{center}
-  \caption{Schematic representation of the system}
-  \label{fig:skizze}
+\begin{figure}[tb]
+    \centering
+    \def\svgwidth{0.4\textwidth}
+    \input{Figures/pendel.fig.pdf_tex}
+    \caption{Schematic representation of the system}
+    \label{fig:skizze}
 \end{figure}
-
-
-%\begin{figure}[tb]
-%    \centering
-%    \def\svgwidth{0.4\textwidth}
-%    \input{Figures/zeichnung.pdf_tex}
-%    \caption{Schematic representation of the system}
-%    \label{fig:skizze}
-%\end{figure}
 
 
 
@@ -167,7 +159,6 @@ Since the system evolves in form of circular movement at constant curvature radi
 Equation \ref{eq: radialbalance} can be simplified for small values of $\phi <<\, 1$ by using the approximation $\sin{\phi} \approx \phi $. This yields the linear movement equation:
 
 \begin{equation}
-
     \Ddot{\phi} = -\frac{g}{l}\,\phi
 \end{equation}
 
@@ -373,6 +364,8 @@ Applying this to Equation \ref{eq: firstOrderSysLin} yields the integration sche
 
 \begin{figure}[h]
     \centering
+    \setlength{\figH}{0.3\textheight}
+    \setlength{\figW}{0.6\textwidth}
     \input{Figures/Figure1.tex}
     \caption{Top: analytical (ANA) solution of the linear movement equation. Bottom: Numerical solution of the linear movement equation using explicit Euler (EE), implicit Euler (EI) and the middle point rule (MP). The studied time interval was $30\,s$ at a time step of $0.01\,s$ for all integrators.}
     \label{fig:LinSolutions}
@@ -391,6 +384,8 @@ Since this is a conservative system, total energy should be conserved in time. A
 
 \begin{figure}[h]
     \centering
+    \setlength{\figH}{0.3\textheight}
+    \setlength{\figW}{0.6\textwidth}
     \input{Figures/Figure2.tex}
     \caption{Course of the system´s total energy over time as a function of the integration scheme chosen. The studied time interval was $30\,s$ at a time step of $0.01\,s$ for all integrators. EE: explicit Euler. EI: implicit Euler. MP: middle-point rule. ANA: analytical solution}
     \label{fig: EnergyPlot}
@@ -408,6 +403,8 @@ where $t$ is the time variable and $T$ is the total simulation time. This quanti
 
 \begin{figure}[h]
     \centering
+    \setlength{\figH}{0.3\textheight}
+    \setlength{\figW}{0.6\textwidth}
     \input{Figures/Figure3.tex}
     \caption{Comparison  of the experimental mean squared error as a function of the time step for the explicit Euler (EE), implicit Euler (EI) and the middle-point rule (MP). The total simulation time and the starting conditions were chosen equal for all methods.}
     \label{fig: ConvergencePlot}
