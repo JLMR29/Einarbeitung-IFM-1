@@ -23,18 +23,18 @@
 
 
 \begin{document}
-	\maketitle
-	\section{First task}
+\maketitle
+\section{First task}
 
-The following tensors are given: 
+The following tensors are given:
 
 \begin{gather}
-  \vec{a} = \begin{bmatrix}
-    3 \\ 1 \\ 2
-  \end{bmatrix}, \quad
-  \vec{A} = \begin{bmatrix}
-    2 & 2 & 1 \\ 2 & -1 & 0 \\ 1 & 0 & 3
-  \end{bmatrix} .
+    \vec{a} = \begin{bmatrix}
+        3 \\ 1 \\ 2
+    \end{bmatrix}, \quad
+    \vec{A} = \begin{bmatrix}
+        2 & 2 & 1 \\ 2 & -1 & 0 \\ 1 & 0 & 3
+    \end{bmatrix} .
 \end{gather}
 
 The product $\Vec{b} = \Vec{A}\cdot \Vec{a}$ is defined as:
@@ -47,8 +47,8 @@ and yields the vector
 
 \begin{equation}
     \Vec{b} = \begin{bmatrix}
-        3\cdot 2 + 2\cdot1 + 1\cdot2 \\ 2\cdot3 + (-1)\cdot1 + 0\cdot2 \\ 1\cdot3 + 0\cdot1 + 2\cdot3 
-    \end{bmatrix} 
+        3\cdot 2 + 2\cdot1 + 1\cdot2 \\ 2\cdot3 + (-1)\cdot1 + 0\cdot2 \\ 1\cdot3 + 0\cdot1 + 2\cdot3
+    \end{bmatrix}
     = \begin{bmatrix}
         10 \\ 5 \\ 9
     \end{bmatrix}.
@@ -57,33 +57,33 @@ and yields the vector
 The symmetric part of $\vec{A}$ is given by:
 
 \begin{align}
-    sym(\Vec{A}) 
-    &   =\frac{1}{2}\,(\vec{A} + \vec{A}^{T}) \\
-    &   = \frac{1}{2}\, \left(  \begin{bmatrix}
-                             2 & 2 & 1 \\ 2 & -1 & 0 \\ 1 & 0 & 3
-                            \end{bmatrix} +  \begin{bmatrix}
-                            2 & 2 & 1 \\ 2 & -1 & 0 \\ 1 & 0 & 3 
-                            \end{bmatrix}
-                            \right) \\
-    &   = \begin{bmatrix}
+    sym(\Vec{A})
+     & =\frac{1}{2}\,(\vec{A} + \vec{A}^{T})                                          \\
+     & = \frac{1}{2}\, \left(  \begin{bmatrix}
+            2 & 2 & 1 \\ 2 & -1 & 0 \\ 1 & 0 & 3
+        \end{bmatrix} +  \begin{bmatrix}
+            2 & 2 & 1 \\ 2 & -1 & 0 \\ 1 & 0 & 3
+        \end{bmatrix}
+    \right)                                                                           \\
+     & = \begin{bmatrix}
         2 & 2 & 1 \\ 2 & -1 & 0 \\ 1 & 0 & 3
-        \end{bmatrix}        
+    \end{bmatrix}
 \end{align}
 
 and the anti-symmetric part of $\vec{A}$ is given by:
 
 \begin{align}
-    skw(\Vec{A}) 
-    &   = \frac{1}{2}\left(\Vec{A} - \Vec{A}^T \right) \\
-    &   = \frac{1}{2}\, \left(  \begin{bmatrix}
-                             2 & 2 & 1 \\ 2 & -1 & 0 \\ 1 & 0 & 3
-                            \end{bmatrix} -  \begin{bmatrix}
-                            2 & 2 & 1 \\ 2 & -1 & 0 \\ 1 & 0 & 3 
-                            \end{bmatrix}
-                            \right) \\
-  &   = \begin{bmatrix}
+    skw(\Vec{A})
+     & = \frac{1}{2}\left(\Vec{A} - \Vec{A}^T \right)                                  \\
+     & = \frac{1}{2}\, \left(  \begin{bmatrix}
+            2 & 2 & 1 \\ 2 & -1 & 0 \\ 1 & 0 & 3
+        \end{bmatrix} -  \begin{bmatrix}
+            2 & 2 & 1 \\ 2 & -1 & 0 \\ 1 & 0 & 3
+        \end{bmatrix}
+    \right)                                                                            \\
+     & = \begin{bmatrix}
         0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0
-        \end{bmatrix}                             
+    \end{bmatrix}
 \end{align}
 
 
@@ -92,38 +92,38 @@ and hence
 
 \begin{align}
     sym(\Vec{A}):skw(\vec{A})
-    &   = Sp\left(sym(\Vec{A})^T \cdot skw(\Vec{A}) \right) \\
-    &   = Sp \left(\begin{bmatrix}
-        2 & 2 & 1 \\ 2 & -1 & 0 \\ 1 & 0 & 3
+     & = Sp\left(sym(\Vec{A})^T \cdot skw(\Vec{A}) \right)                            \\
+     & = Sp \left(\begin{bmatrix}
+            2 & 2 & 1 \\ 2 & -1 & 0 \\ 1 & 0 & 3
         \end{bmatrix} \cdot \begin{bmatrix}
-        0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0
+            0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0
         \end{bmatrix} \right) \\
-    &   = Sp \begin{bmatrix}
-                0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0
-            \end{bmatrix} \\
-    &   = 0.
+     & = Sp \begin{bmatrix}
+        0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0
+    \end{bmatrix}                                                \\
+     & = 0.
 \end{align}
 
 The divergence of the tensor $ \Vec{A}$ is given by
 
 \begin{align}
     \Div(\Vec{A})
-    &   = \Vec{A} \cdot \Vec{\nabla} \\
-    &   = \begin{bmatrix}
+     & = \Vec{A} \cdot \Vec{\nabla}                                  \\
+     & = \begin{bmatrix}
         2 & 2 & 1 \\[2mm] 2 & -1 & 0 \\[2mm] 1 & 0 & 3
-        \end{bmatrix} \cdot \begin{bmatrix}
-            \frac{\partial}{\partial x_1} \\[2mm] \frac{\partial}{\partial x_2} \\[2mm]  \frac{\partial}{\partial x_3}
-        \end{bmatrix} \\[2mm]
-    &   = \begin{bmatrix}
-        \frac{\partial}{\partial x_1}\,(2) + \frac{\partial}{\partial x_2}\, (2) + \frac{\partial 1}{\partial x_3}\, (1) \\[2mm]
-        \frac{\partial}{\partial x_1}\,(2) + \frac{\partial}{\partial x_2}\, (-1) + \frac{\partial 1}{\partial x_3}\, (0) \\[2mm]
-        \frac{\partial}{\partial x_1}\,(1) + \frac{\partial}{\partial x_2}\, (0) + \frac{\partial 1}{\partial x_3}\, (3) \\
+    \end{bmatrix} \cdot \begin{bmatrix}
+        \frac{\partial}{\partial x_1} \\[2mm] \frac{\partial}{\partial x_2} \\[2mm]  \frac{\partial}{\partial x_3}
     \end{bmatrix} \\[2mm]
-    &   = \begin{bmatrix}
+     & = \begin{bmatrix}
+        \frac{\partial}{\partial x_1}\,(2) + \frac{\partial}{\partial x_2}\, (2) + \frac{\partial 1}{\partial x_3}\, (1)  \\[2mm]
+        \frac{\partial}{\partial x_1}\,(2) + \frac{\partial}{\partial x_2}\, (-1) + \frac{\partial 1}{\partial x_3}\, (0) \\[2mm]
+        \frac{\partial}{\partial x_1}\,(1) + \frac{\partial}{\partial x_2}\, (0) + \frac{\partial 1}{\partial x_3}\, (3)  \\
+    \end{bmatrix}                                  \\[2mm]
+     & = \begin{bmatrix}
         0 \\ 0 \\ 0
-        \end{bmatrix}
+    \end{bmatrix}
 \end{align}
-    
+
 
 \section{Second Task}
 
@@ -147,12 +147,12 @@ The mechanical system considered here consists of a mass point of mass $m$ attac
 Since the system evolves in form of circular movement at constant curvature radius, polar coordinates are used to describe the movement. A free body diagram for the mass $m$ is shown in Figure \ref{fig:free body}. The forces considered here are gravity $F_g = m\cdot g$ and the reactive tension of the string $F_r$. Under this circumstances, moment balances in both radial and tangential direction yield the movement equations:
 
 \begin{equation}
-\label{eq: radialbalance}
+    \label{eq: radialbalance}
     m \Ddot{r} = F_r - \cos{\phi}\,F_g = 0
 \end{equation}
 
 \begin{equation}
-\label{eq: tangentialbalance}
+    \label{eq: tangentialbalance}
     m\, l \, \Ddot{\phi} = -m\, g \,\sin{\phi}
 \end{equation}
 
@@ -167,18 +167,18 @@ Equation \ref{eq: radialbalance} can be simplified for small values of $\phi <<\
 
 
 \begin{figure}[h]
-  \begin{center}
-    {
-        \psfragscanon
-      \psfrag{1}[c][c]{$\vec{F_r}$}
-      \psfrag{2}[c][c]{$\vec{F_g}$}
-      \psfrag{3}[c][c]{$\vec{\xi_r}$}
-      \psfrag{4}[c][c]{$\vec{\xi_{\phi}}$}
-      \psfrag{5}[c][c]{$\phi$}
-      \includegraphics[width=0.2\textwidth]{Figures/Zeichnung2.eps}}
-  \end{center}
-  \caption{Free body diagram}
-  \label{fig:free body}
+    \begin{center}
+        {
+            \psfragscanon
+            \psfrag{1}[c][c]{$\vec{F_r}$}
+            \psfrag{2}[c][c]{$\vec{F_g}$}
+            \psfrag{3}[c][c]{$\vec{\xi_r}$}
+            \psfrag{4}[c][c]{$\vec{\xi_{\phi}}$}
+            \psfrag{5}[c][c]{$\phi$}
+            \includegraphics[width=0.2\textwidth]{Figures/Zeichnung2.eps}}
+    \end{center}
+    \caption{Free body diagram}
+    \label{fig:free body}
 \end{figure}
 
 \subsection{Derivation of the movement equations using the Lagrange formalism}
@@ -187,14 +187,14 @@ Equation \ref{eq: radialbalance} can be simplified for small values of $\phi <<\
 In Lagrangian mechanics, the movement equations are derived from a potential called the Lagrangian $l$, which can be written as:
 
 \begin{equation}
-\label{eq: Lagrangian}
+    \label{eq: Lagrangian}
     L(\Vec{q}, \Vec{\Dot{q}}) = T(\Vec{\Dot{q}}) - V(\Vec{q}),
 \end{equation}
 
 where $T$ is the total kinetic energy and $V$ is the potential energy of the system. This function depends on the system describing variables $\Vec{q}$ and their time derivative $\Vec{\Dot{q}}$. The movement equations can then be derived from the Lagrangian equation of second kind:
 
 \begin{equation}
-\label{eq: secondKindLagrangian}
+    \label{eq: secondKindLagrangian}
     \frac{d}{dt}\left(\frac{\partial L}{\partial \Dot{q}}\right) - \left(\frac{\partial L}{\partial q}  \right) = \Vec{0}.
 \end{equation}
 
@@ -202,8 +202,8 @@ Using the minimal coordinate $q$ = $\phi$, the position vector $\Vec{r}$ can be 
 
 \begin{equation}
     \Vec{r} = \begin{bmatrix}
-        l\,sin(\phi) \\ l\, cos(\phi) 
-        \end{bmatrix}
+        l\,sin(\phi) \\ l\, cos(\phi)
+    \end{bmatrix}
 \end{equation}
 
 Furthermore, the kinetic and potential energy are given by:
@@ -212,7 +212,7 @@ Furthermore, the kinetic and potential energy are given by:
     T = \frac{1}{2}\,\Vec{\Dot{r}}^T\,m\,\Vec{\Dot{r}}
 \end{equation}
 
-and 
+and
 \begin{equation}
     V = -m\,g\,l\,cos(\phi).
 \end{equation}
@@ -229,14 +229,14 @@ and the required derivatives for Equation \ref{eq: Lagrangian} result to:
 \end{equation}
 
 \begin{equation}
-\label{eq: LagFirstPart}
+    \label{eq: LagFirstPart}
     \frac{d}{dt}\left(\frac{\partial L}{\partial \Dot{q}}\right) = m\,l^2\,\Ddot{\phi}
 \end{equation}
 
-and 
+and
 
 \begin{equation}
-\label{eq: LagSecondPart}
+    \label{eq: LagSecondPart}
     \left(\frac{\partial L}{\partial q}  \right) = \frac{\partial}{\partial \phi} \left(m\,g\,l\cos(\phi)\right) = -m\,g\,l\,sin(\phi).
 \end{equation}
 
@@ -254,7 +254,7 @@ which is equivalent to Equation \ref{eq: tangentialbalance} derived in Section \
 The linear movement equation is a ordinary differential equation (ODE) of second order. Due to the presence of constant coefficients, the following approach can be taken:
 
 \begin{equation}
-\label{eq: linear}
+    \label{eq: linear}
     \phi (t) = \exp{(\lambda \, t)}.
 \end{equation}
 
@@ -274,8 +274,8 @@ The starting conditions $\Dot{\phi} = 0$ and $\phi = \phi_o$ at $t_o = 0$ yield 
 
 \begin{align}
     \phi(t)
-    & = \frac{\phi_o}{2}\, \left(\exp{\left(\,i\sqrt{\frac{g}{l}}\,t\right)} + \exp{\left(-\,i\sqrt{\frac{g}{l}}\,t\right)} \right) \\
-    & = \phi_o\,\cos{\left(\sqrt{\frac{g}{l}}\,t \right)}
+     & = \frac{\phi_o}{2}\, \left(\exp{\left(\,i\sqrt{\frac{g}{l}}\,t\right)} + \exp{\left(-\,i\sqrt{\frac{g}{l}}\,t\right)} \right) \\
+     & = \phi_o\,\cos{\left(\sqrt{\frac{g}{l}}\,t \right)}
 \end{align}
 
 In the following, $\phi_o = 0.0875\,rad$ is assumed. Figure \ref{fig:LinSolutions} (top) shows the course of the analytical solution as a function of time.
@@ -286,17 +286,17 @@ In the following, $\phi_o = 0.0875\,rad$ is assumed. Figure \ref{fig:LinSolution
 For the numerical solution, three different integration schemes were used: explicit Euler, implicit Euler and the middle point rule. First, the linear equation was expressed in the form of a first order system of PDEs by defining a vector:
 \begin{equation}
     \Vec{X} = \begin{bmatrix}
-        \phi \\ \Dot{\phi} 
-        \end{bmatrix},
+        \phi \\ \Dot{\phi}
+    \end{bmatrix},
 \end{equation}
 
 which yields the equivalent representation of Equation \ref{eq: linear} in the form:
 
 \begin{equation}
     \Vec{\Dot{X}} = \begin{bmatrix}
-        0 & 1 \\ -\frac{g}{L}\ & 0 
-        \end{bmatrix} \, \Vec{X}.
-        \label{eq: firstOrderSysLin}
+        0 & 1 \\ -\frac{g}{L}\ & 0
+    \end{bmatrix} \, \Vec{X}.
+    \label{eq: firstOrderSysLin}
 \end{equation}
 
 Equation \ref{eq: firstOrderSysLin} is a first order equation of the form
@@ -324,24 +324,24 @@ Plugging Equation \ref{eq: EulerTanApprox} into Equation \ref{eq: firstOrderSysL
 
 \begin{equation}
     \Vec{X}(t+\Delta t) \approx \Vec{X}(t) + \begin{bmatrix}
-        0 & 1 \\ -\frac{g}{L}\ & 0 
-        \end{bmatrix} \, \Vec{X}(t) \, \Delta t.
+        0 & 1 \\ -\frac{g}{L}\ & 0
+    \end{bmatrix} \, \Vec{X}(t) \, \Delta t.
 \end{equation}
 
 Contrarily, the implicit Euler method approximates the tangent by taking the values at the end of the interesting time interval. This leads to a first order approximation as well. However, the resulting equation has to be solved explicitly:
 
 \begin{equation}
     \Vec{X}(t+\Delta t) \approx \Vec{X}(t) + \begin{bmatrix}
-        0 & 1 \\ -\frac{g}{L}\ & 0 
-        \end{bmatrix} \, \Vec{X}(t+\Delta t) \, \Delta t.
+        0 & 1 \\ -\frac{g}{L}\ & 0
+    \end{bmatrix} \, \Vec{X}(t+\Delta t) \, \Delta t.
 \end{equation}
 
 Rearranging the equation leads to a linear equation system of the form:
 
 \begin{equation}
     \left(\vec{I} - \begin{bmatrix}
-        0 & 1 \\ -\frac{g}{L}\ & 0 
-        \end{bmatrix}\,\Delta t \right)\,\Vec{X}(t+\Delta t) \approx \Vec{X}(t),
+        0 & 1 \\ -\frac{g}{L}\ & 0
+    \end{bmatrix}\,\Delta t \right)\,\Vec{X}(t+\Delta t) \approx \Vec{X}(t),
 \end{equation}
 which can be solved by matrix inversion.
 
@@ -355,9 +355,9 @@ Applying this to Equation \ref{eq: firstOrderSysLin} yields the integration sche
 
 \begin{equation}
     \Vec{X}(t+\Delta t) \approx \vec{X}(t) + \begin{bmatrix}
-        0 & 1 \\ -\frac{g}{L}\ & 0 
-        \end{bmatrix}\,\left(\Vec{X}(t) + \begin{bmatrix}
-        0 & 1 \\ -\frac{g}{L}\ & 0 
+        0 & 1 \\ -\frac{g}{L}\ & 0
+    \end{bmatrix}\,\left(\Vec{X}(t) + \begin{bmatrix}
+            0 & 1 \\ -\frac{g}{L}\ & 0
         \end{bmatrix} \Vec{X}(t)\, \frac{\Delta t}{2} \right).
 \end{equation}
 
@@ -371,7 +371,7 @@ Applying this to Equation \ref{eq: firstOrderSysLin} yields the integration sche
     \label{fig:LinSolutions}
 \end{figure}
 
-Figure \ref{fig:LinSolutions} shows both the analytical and the numerical solutions of Equation \ref{eq: linear}. The initial conditions were chosen to $\phi_o = 0.0875\,rad$ and $\Dot{\phi_o}= 0$. The total simulation time was chosen to $T = 30\,s$ at a time step of $0.01\,s$. For the numerical case, the EE, EI, and MP integration schemes were compared. As the Figure shows, the angle coordinate varied periodically in time. For the analytical case, the amplitude and period of the oscillation remained unchanged within the simulated time interval. In the case of the numerical methods, the period of the oscillation was maintained. However, the amplitude increased dramatically for the EE method, decreased for the EI method and remained almost unchanged for the MP method. 
+Figure \ref{fig:LinSolutions} shows both the analytical and the numerical solutions of Equation \ref{eq: linear}. The initial conditions were chosen to $\phi_o = 0.0875\,rad$ and $\Dot{\phi_o}= 0$. The total simulation time was chosen to $T = 30\,s$ at a time step of $0.01\,s$. For the numerical case, the EE, EI, and MP integration schemes were compared. As the Figure shows, the angle coordinate varied periodically in time. For the analytical case, the amplitude and period of the oscillation remained unchanged within the simulated time interval. In the case of the numerical methods, the period of the oscillation was maintained. However, the amplitude increased dramatically for the EE method, decreased for the EI method and remained almost unchanged for the MP method.
 
 Further, the course of the total energy of the system for the different integration methods was studied. In the mathematical pendulum system, the total energy is given by the sum of the (gravitational) potential and the kinetic energy. Taking the fixing point as reference level for the potential energy, the total energy of the system can be written as:
 
@@ -400,6 +400,11 @@ Finally, a convergence analysis was carried out. The analytical solution was tak
 
 where $t$ is the time variable and $T$ is the total simulation time. This quantity was computed at different time steps, ranging from $10^{-6} \, s$ to $5\cdot 10^{-3} \,s$. The resulting MSEs were plotted against the time step, both in logarithmic scale, in order to study the experimental order of convergence (EOC) of the integration methods. This is shown in Figure \ref{fig: ConvergencePlot}.
 
+\textcolor{red}{Try computing the error measure defined by}
+\begin{align}
+    e_\phi = \frac{| \phi_\mathrm{NUM}(t=T) - \phi_\mathrm{ANA}(t=T)| }{| \phi_{ANA}(t=T)|}
+\end{align}
+\textcolor{red}{where $\phi_\mathrm{NUM}$ denotes the solution obtained with the respective time-stepping methods. When plotting this error measure as a function of the time step size $\Delta t$ in a double-log plot, you should correctly captured the second-order convergence of the midpoint rule.}
 
 \begin{figure}[h]
     \centering
