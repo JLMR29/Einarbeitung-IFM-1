@@ -1,0 +1,66 @@
+% This file was created by matlab2tikz.
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=0.951\figW,
+height=\figH,
+at={(0\figW,0\figH)},
+scale only axis,
+xmode=log,
+xmin=1e-06,
+xmax=0.01,
+xminorticks=true,
+xlabel style={font=\color{white!15!black}},
+xlabel={$log(\Delta t)\, [-]$},
+ymode=log,
+ymin=1e-07,
+ymax=0.1,
+yminorticks=true,
+ylabel style={font=\color{white!15!black}},
+ylabel={$log(MSE)\, [-]$},
+axis background/.style={fill=white},
+xmajorgrids,
+xminorgrids,
+ymajorgrids,
+yminorgrids,
+legend style={at={(0.03,0.97)}, anchor=north west, legend cell align=left, align=left, draw=white!15!black}
+]
+\addplot [color=red]
+  table[row sep=crcr]{%
+0.005	0.03512\\
+0.001	0.005536\\
+0.0005	0.002692\\
+0.0001	0.0005265\\
+1e-05	5.239e-05\\
+5e-05	0.0002625\\
+1e-06	5.237e-06\\
+};
+\addlegendentry{EE}
+
+\addplot [color=green]
+  table[row sep=crcr]{%
+0.005	0.02026\\
+0.001	0.004963\\
+0.0005	0.002549\\
+0.0001	0.0005211\\
+1e-05	5.236e-05\\
+5e-05	0.0002612\\
+1e-06	5.239e-06\\
+};
+\addlegendentry{EI}
+
+\addplot [color=blue]
+  table[row sep=crcr]{%
+0.005	0.0008538\\
+0.001	0.0001893\\
+0.0005	9.584e-05\\
+0.0001	1.936e-05\\
+1e-05	1.94e-06\\
+5e-05	9.691e-06\\
+1e-06	1.941e-07\\
+};
+\addlegendentry{MP}
+
+\end{axis}
+\end{tikzpicture}%
