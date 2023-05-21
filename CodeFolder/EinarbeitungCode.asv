@@ -111,7 +111,7 @@ clear EESolutions EISolutions MPSolutions ANSolutions
 clear EEEnergy EIEnergy MPEnergy ANEnergy
 
 cleanfigure;
-matlab2tikz('height', '\figH', 'width', '\figW', 'filename', ['Figure6', '.tex'], 'showInfo', false, 'floatformat', '%.4g');
+matlab2tikz('height', '\figH', 'width', '\figW', 'filename', ['Figure2', '.tex'], 'showInfo', false, 'floatformat', '%.4g');
 
 %%
 
