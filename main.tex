@@ -131,7 +131,7 @@ The divergence of the tensor $ \Vec{A}$ is given by
 \label{sec: NewtonianDerivation}
 
 
-\begin{figure}[tb]
+\begin{figure}[h]
     \centering
     \def\svgwidth{0.4\textwidth}
     \input{Figures/pendel.fig.pdf_tex}
@@ -144,11 +144,13 @@ The divergence of the tensor $ \Vec{A}$ is given by
 The mechanical system considered here consists of a mass point of mass $m$ attached to an ideal inelastic string of length $l$, which is fixed to a rotating bearing as shown in Figure \ref{fig:skizze}.
 
 
-Since the system evolves in form of circular movement at constant curvature radius, polar coordinates are used to describe the movement. A free body diagram for the mass $m$ is shown in Figure \ref{fig:free body}. The forces considered here are gravity $F_g = m\cdot g$ and the reactive tension of the string $F_r$. Under this circumstances, moment balances in both radial and tangential direction yield the movement equations:
+Since the system evolves in form of circular movement at constant curvature radius, polar coordinates are used to describe the movement. A free body diagram for the mass $m$ is shown in Figure \ref{fig:free body}. The forces considered here are gravity $\Vec{F_g} = m\cdot \Vec{g}$ and the reactive tension of the string $\Vec{F_{\eta}}$. Under these circumstances, moment balances in both radial and tangential direction yield the movement equations:
 
 \begin{equation}
-    \label{eq: radialbalance}
-    m \Ddot{r} = F_r - \cos{\phi}\,F_g = 0
+
+\label{eq: radialbalance}
+    m \Ddot{r} = F_{\eta} - \cos{\phi}\,F_g = 0
+
 \end{equation}
 
 \begin{equation}
@@ -167,24 +169,18 @@ Equation \ref{eq: radialbalance} can be simplified for small values of $\phi <<\
 
 
 \begin{figure}[h]
-    \begin{center}
-        {
-            \psfragscanon
-            \psfrag{1}[c][c]{$\vec{F_r}$}
-            \psfrag{2}[c][c]{$\vec{F_g}$}
-            \psfrag{3}[c][c]{$\vec{\xi_r}$}
-            \psfrag{4}[c][c]{$\vec{\xi_{\phi}}$}
-            \psfrag{5}[c][c]{$\phi$}
-            \includegraphics[width=0.2\textwidth]{Figures/Zeichnung2.eps}}
-    \end{center}
-    \caption{Free body diagram}
+
+    \centering
+    \def\svgwidth{0.4\textwidth}
+    \input{Figures/FreeBodyDiagram.pdf_tex}
+    \caption{Free body diagram in polar coordinates}
     \label{fig:free body}
 \end{figure}
 
 \subsection{Derivation of the movement equations using the Lagrange formalism}
 \label{sec: lagrange}
 
-In Lagrangian mechanics, the movement equations are derived from a potential called the Lagrangian $l$, which can be written as:
+In Lagrangian mechanics, the movement equations are derived from a potential called the Lagrangian $L$, which can be written as:
 
 \begin{equation}
     \label{eq: Lagrangian}
@@ -283,7 +279,7 @@ In the following, $\phi_o = 0.0875\,rad$ is assumed. Figure \ref{fig:LinSolution
 
 \subsection{Numerical solution of the linear equation of movement}
 
-For the numerical solution, three different integration schemes were used: explicit Euler, implicit Euler and the middle point rule. First, the linear equation was expressed in the form of a first order system of PDEs by defining a vector:
+For the numerical solution, three different integration schemes were used: explicit Euler (EE), implicit Euler (EI) and the mid-point rule (MP). First, the linear equation was expressed in the form of a first order system of PDEs by defining a vector:
 \begin{equation}
     \Vec{X} = \begin{bmatrix}
         \phi \\ \Dot{\phi}
@@ -391,20 +387,36 @@ Since this is a conservative system, total energy should be conserved in time. A
     \label{fig: EnergyPlot}
 \end{figure}
 
-Finally, a convergence analysis was carried out. The analytical solution was taken as benchmark for all integration schemes and the mean squared error (MSE) was taken as a measurement of the deviation from the analytical solution. The MSE was calculated as follows:
+For the case of the midpoint rule, the course of energy over time was further analysed in the form of the instantaneous energy difference, which was defined as:
 
 \begin{equation}
-    MSE = \sqrt{\frac{\displaystyle \sum_{t}^T \left(\phi_{K} - \phi_{ANA}\right)^2}{T}},
-    \label{eq: MSE}
+    \Delta E (t) = E(t) - E(t-\Delta t) \quad ,\,t \in [t_o + \Delta t, T].
 \end{equation}
 
-where $t$ is the time variable and $T$ is the total simulation time. This quantity was computed at different time steps, ranging from $10^{-6} \, s$ to $5\cdot 10^{-3} \,s$. The resulting MSEs were plotted against the time step, both in logarithmic scale, in order to study the experimental order of convergence (EOC) of the integration methods. This is shown in Figure \ref{fig: ConvergencePlot}.
 
-\textcolor{red}{Try computing the error measure defined by}
+The results are shown in Figure \ref{fig: EnergyDiffPlot}. As can be seen, the instantaneous energy difference oscillates in a regular fashion throughout the course of the simulation. The amplitude of this oscillation is nearly $10^{-6}\,J$ and the pattern has a period of about $2\,s$.
+
+
+\begin{figure}[h]
+    \centering
+    \setlength{\figH}{0.3\textheight}
+    \setlength{\figW}{0.6\textwidth}
+    \input{Figures/Figure6}
+    \caption{Course of the instantaneous energy difference over time for the MP-based computation. The time step was $0.01 \,s$ and the end time was $30\,s$}
+    \label{fig: EnergyDiffPlot}
+\end{figure}
+
+
+
+
+Finally, a convergence analysis was carried out. The analytical solution was taken as benchmark for all integration schemes and a relative error $e_{Phi}$ was taken as a measurement of the deviation from the analytical solution. The relative error was calculated as follows:
+
 \begin{align}
     e_\phi = \frac{| \phi_\mathrm{NUM}(t=T) - \phi_\mathrm{ANA}(t=T)| }{| \phi_{ANA}(t=T)|}
 \end{align}
-\textcolor{red}{where $\phi_\mathrm{NUM}$ denotes the solution obtained with the respective time-stepping methods. When plotting this error measure as a function of the time step size $\Delta t$ in a double-log plot, you should correctly captured the second-order convergence of the midpoint rule.}
+
+where $t$ is the time variable and $T$ is the total simulation time. $\phi_{NUM}$ is the numerically calculated angle and $\phi_{ANA}$ is the analytically calculated. This quantity was computed at different time steps, ranging from $10^{-6} \, s$ to $5\cdot 10^{-3} \,s$. The resulting MSEs were plotted against the time step, both in logarithmic scale, in order to study the experimental order of convergence (EOC) of the integration methods. This is shown in Figure \ref{fig: ConvergencePlot}.
+
 
 \begin{figure}[h]
     \centering
@@ -414,12 +426,6 @@ where $t$ is the time variable and $T$ is the total simulation time. This quanti
     \caption{Comparison  of the experimental mean squared error as a function of the time step for the explicit Euler (EE), implicit Euler (EI) and the middle-point rule (MP). The total simulation time and the starting conditions were chosen equal for all methods.}
     \label{fig: ConvergencePlot}
 \end{figure}
-
-
-
-
-
-
 
 
 

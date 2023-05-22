@@ -3,7 +3,7 @@
 \begin{tikzpicture}
 
 \begin{axis}[%
-width=0.951\figW,
+width=0.952\figW,
 height=\figH,
 at={(0\figW,0\figH)},
 scale only axis,
@@ -12,13 +12,13 @@ xmin=1e-06,
 xmax=0.01,
 xminorticks=true,
 xlabel style={font=\color{white!15!black}},
-xlabel={$log(\Delta t)\, [-]$},
+xlabel={$log(\Delta t) \,[-]$},
 ymode=log,
-ymin=1e-07,
-ymax=0.1,
+ymin=9.177e-07,
+ymax=1.072,
 yminorticks=true,
 ylabel style={font=\color{white!15!black}},
-ylabel={$log(MSE)\, [-]$},
+ylabel={$log(e_{phi}) \,[-]$},
 axis background/.style={fill=white},
 xmajorgrids,
 xminorgrids,
@@ -28,37 +28,37 @@ legend style={at={(0.03,0.97)}, anchor=north west, legend cell align=left, align
 ]
 \addplot [color=red]
   table[row sep=crcr]{%
-0.005	0.03512\\
-0.001	0.005536\\
-0.0005	0.002692\\
-0.0001	0.0005265\\
-1e-05	5.239e-05\\
-5e-05	0.0002625\\
-1e-06	5.237e-06\\
+0.005	1.072\\
+0.001	0.1573\\
+0.0005	0.07583\\
+0.0001	0.01473\\
+1e-05	0.001463\\
+5e-05	0.007338\\
+1e-06	0.0001462\\
 };
 \addlegendentry{EE}
 
 \addplot [color=green]
   table[row sep=crcr]{%
-0.005	0.02026\\
-0.001	0.004963\\
-0.0005	0.002549\\
-0.0001	0.0005211\\
-1e-05	5.236e-05\\
-5e-05	0.0002612\\
-1e-06	5.239e-06\\
+0.005	0.5242\\
+0.001	0.1377\\
+0.0005	0.07138\\
+0.0001	0.0147\\
+1e-05	0.00148\\
+5e-05	0.007376\\
+1e-06	0.0001481\\
 };
 \addlegendentry{EI}
 
 \addplot [color=blue]
   table[row sep=crcr]{%
-0.005	0.0008538\\
-0.001	0.0001893\\
-0.0005	9.584e-05\\
-0.0001	1.936e-05\\
-1e-05	1.94e-06\\
-5e-05	9.691e-06\\
-1e-06	1.941e-07\\
+0.005	0.003488\\
+0.001	0.0008768\\
+0.0005	0.0004487\\
+0.0001	9.137e-05\\
+1e-05	9.173e-06\\
+5e-05	4.578e-05\\
+1e-06	9.177e-07\\
 };
 \addlegendentry{MP}
 
